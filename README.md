@@ -20,11 +20,11 @@ List of options (same with `qrcode-svg` library):
 * color - color of modules (squares), color name or hex string, e.g. #FF0000, default: `#000000`
 * background - color of background, color name or hex string, e.g. white, default: `none` 
 * ecl - error correction level: L, M, H, Q. Default: `М`
-<!-- * join - join modules (squares) into one shape, into the SVG path element, recommended for web and responsive use, default: false -->
 * xmlDeclaration - prepend XML declaration to the SVG document, i.e. `<?xml version="1.0" standalone="yes"?>`, default: `false`
+<!-- * join - join modules (squares) into one shape, into the SVG path element, recommended for web and responsive use, default: false -->
 
 
-## Depe
+## Dependecies
 
 Main functionality of adding a QR code is borrowed from Ozh's orginal plugin code.
 
