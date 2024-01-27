@@ -125,10 +125,9 @@ const contentValueLink = contentValue.replace(/^https?:\/\//, '');
 paddingValue      = getUrlParameter('padding')    === '' ? paddingValue : getUrlParameter('padding');
 widthValue        = getUrlParameter('width')      === '' ? widthValue : getUrlParameter('width');
 heightValue       = getUrlParameter('height')     === '' ? heightValue : getUrlParameter('height');
-colorValue        = getUrlParameter('color')      === '' ? colorValue : getUrlParameter('color');
-backgroundValue   = getUrlParameter('background') === '' ? backgroundValue : getUrlParameter('background');
+colorValue        = getUrlParameter('color')      === '' ? colorValue : addHashIfHEX(getUrlParameter('color'));
+backgroundValue   = getUrlParameter('background') === '' ? backgroundValue : addHashIfHEX(getUrlParameter('background'));
 eclValue          = getUrlParameter('ecl')        === '' ? eclValue : getUrlParameter('ecl');
-
 
 
 
@@ -138,7 +137,7 @@ var qrcode = new QRCode({
   padding: paddingValue,
   width: widthValue,
   height: heightValue,
-  color: "colorValue",
+  color: colorValue,
   background: backgroundValue,
   container: "svg-viewbox", //Responsive use
   join: joinValue, //Crisp rendering and 4-5x reduced file size
@@ -153,7 +152,18 @@ document.getElementById("container").innerHTML = svg;
 document.getElementById("link").innerHTML = "<a href='"+contentValue+"'>" + contentValueLink + "</a>";
 
 
+function addHashIfHEX(color) {
+  // Check if the color is a valid hex color
+  const hexRegex = /^([0-9a-f]{3}|[0-9a-f]{6})$/i;
 
+  if (hexRegex.test(color)) {
+    // Color is  a valid hex color, add '#' at the beginning
+    return '#' + color;
+  } else {
+    // Color is not a valid hex color, no need to add '#'
+    return color;
+  }
+}
 
 // Function to get URL parameters
 function getUrlParameter(name) {
