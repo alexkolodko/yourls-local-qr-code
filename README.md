@@ -18,7 +18,7 @@ List of options (same with `qrcode-svg` library):
 * padding - white space padding, default: `0` modules, `4` for classic use
 * width - QR Code width in pixels, default: `256 px`
 * height - QR Code height in pixels, default:  `256 px`
-* color - color of modules (squares), color name or hex string, e.g. #FF0000, default: `#000000`
+* color - color of modules (squares), color name or hex string (without hash # symbol), e.g. FF0000, default: `000000`
 * background - color of background, color name or hex string, e.g. white, default: `none` 
 * ecl - error correction level: L, M, H, Q. Default: `М`
 * xmlDeclaration - prepend XML declaration to the SVG document, i.e. `<?xml version="1.0" standalone="yes"?>`, default: `false`
